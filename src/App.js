@@ -1,24 +1,66 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Login from "./Components/Login.js";
+import Signup from "./Components/Signup.js";
+import Books from "./Components/Books.js";
+import CreateBook from "./Components/CreateBook.js";
+import Dashboard from "./Components/Dashboard.js";
+import DashboardContent from "./Components/DashboardContent.js";
+import NotFound from "./Components/NotFound.js";
+import UpdateBook from "./Components/UpdateBook.js";
+import { Routes, Route, Navigate } from "react-router-dom";
+import ProtectedRoute from "./Components/ProtectedRoute.js";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <Routes>
+        <Route path="/" element={<Navigate to="/dashboard" />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Route
+            path=""
+            element={
+              <ProtectedRoute>
+                <DashboardContent />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="books"
+            element={
+              <ProtectedRoute>
+                <Books />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="books/:id"
+            element={
+              <ProtectedRoute>
+                <UpdateBook />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="books/new"
+            element={
+              <ProtectedRoute>
+                <CreateBook />
+              </ProtectedRoute>
+            }
+          />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
   );
 }
 
