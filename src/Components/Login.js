@@ -6,6 +6,7 @@ import {
   emailPattern,
   passwordPattern,
 } from "../backendAPICall/reularExpressions.js";
+import BgImage from "../images/BgImage.png";
 
 export default function Login() {
   const [userName, setUserName] = useState("");
@@ -64,72 +65,93 @@ export default function Login() {
 
   return (
     <>
-      <div className="container pt-5">
+      <div
+        style={{
+          backgroundImage: `url(${BgImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          width: "100vw",
+          height: "90vh",
+        }}
+      >
         <h1
           className="display-1 pb-2"
-          style={{ color: "Blue", fontWeight: "bold", textAlign: "justify" }}
+          style={{ color: "White", fontWeight: "bold", textAlign: "center" }}
         >
           KH BookStore
         </h1>
-
         <div
-          className="card"
           style={{
-            maxWidth: "30rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          <div className="card-header">Login</div>
-          <div className="card-body">
-            <form onSubmit={onSubmit}>
-              <div className="mb-3">
-                <label htmlFor="userName" className="form-label">
-                  Email address
-                </label>
-                <input
-                  type="email"
-                  className={`form-control ${userNameError && `is-invalid`}`}
-                  id="userName"
-                  value={userName}
-                  onChange={(event) => setUserNameAndError(event.target.value)}
-                  onBlur={(event) => setUserNameAndError(event.target.value)}
-                  placeholder="Enter emailId"
-                />
-                {userNameError && (
-                  <span className="text-danger">{userNameError}</span> //This is to display the html component if some condition is fulfilled
-                )}
-              </div>
-              <div className="mb-3">
-                <label htmlFor="password" className="form-label">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  className={`form-control ${passwordError && `is-invalid`}`}
-                  id="password"
-                  autoComplete="on"
-                  value={password}
-                  onChange={(event) => setPasswordAndError(event.target.value)}
-                  onBlur={(event) => setPasswordAndError(event.target.value)}
-                  placeholder="Enter password"
-                />
-                {passwordError && (
-                  <span className="text-danger">{passwordError}</span>
-                )}
-              </div>
-              <button type="submit" className="btn btn-primary">
-                Login
-              </button>
-              <Link
-                to="/signup"
-                className="card-link"
-                style={{ marginLeft: "10px" }}
-              >
-                Sign up
-              </Link>
-            </form>
+          <div
+            className="card"
+            style={{
+              maxWidth: "60rem",
+            }}
+          >
+            <div className="card-header">Login</div>
+            <div className="card-body">
+              <form onSubmit={onSubmit}>
+                <div className="mb-3">
+                  <label htmlFor="userName" className="form-label">
+                    Email address
+                  </label>
+                  <input
+                    type="email"
+                    className={`form-control ${userNameError && `is-invalid`}`}
+                    id="userName"
+                    value={userName}
+                    onChange={(event) =>
+                      setUserNameAndError(event.target.value)
+                    }
+                    onBlur={(event) => setUserNameAndError(event.target.value)}
+                    placeholder="Enter emailId"
+                  />
+                  {userNameError && (
+                    <span className="text-danger">{userNameError}</span> //This is to display the html component if some condition is fulfilled
+                  )}
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="password" className="form-label">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    className={`form-control ${passwordError && `is-invalid`}`}
+                    id="password"
+                    autoComplete="on"
+                    value={password}
+                    onChange={(event) =>
+                      setPasswordAndError(event.target.value)
+                    }
+                    onBlur={(event) => setPasswordAndError(event.target.value)}
+                    placeholder="Enter password"
+                  />
+                  {passwordError && (
+                    <span className="text-danger">{passwordError}</span>
+                  )}
+                </div>
+                <button type="submit" className="btn btn-primary">
+                  Login
+                </button>
+                <Link
+                  to="/signup"
+                  className="card-link"
+                  style={{ marginLeft: "10px" }}
+                >
+                  Sign up
+                </Link>
+              </form>
+            </div>
           </div>
         </div>
       </div>
+      <footer style={{ color: "black" }}>KH Book Store &copy;2023</footer>
     </>
   );
 }

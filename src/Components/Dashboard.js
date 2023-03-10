@@ -26,7 +26,7 @@ export default function Dashboard() {
           className="collapse navbar-collapse"
           width="100%"
           id="navbarNav"
-          style={{ color: "blue", fontWeight: "bolder" }}
+          style={{ color: "grey", fontWeight: "bolder" }}
         >
           <ul className="navbar-nav">
             <li className="nav-item">
@@ -41,7 +41,11 @@ export default function Dashboard() {
             </li>
           </ul>
         </div>
-        <button className="btn p-3 text-primary bg-white" onClick={logout}>
+        <button
+          className="btn p-3 text-primary bg-white"
+          style={{ color: "grey", fontWeight: "bold" }}
+          onClick={logout}
+        >
           Logout
         </button>
       </nav>
