@@ -29,15 +29,20 @@ export default function Books() {
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <h1 className="display-4 pb-2">Books</h1>
+            <h1
+              className="display-4 pb-2"
+              style={{ color: "Blue", fontWeight: "bolder" }}
+            >
+              Books
+            </h1>
             <button
               type="button"
-              className="btn btn-primary btn-lg float-end"
+              className="btn btn-primary btn-lg"
               onClick={() => {
                 navigate("/dashboard/books/new");
               }}
             >
-              Add
+              Add New Book
             </button>
           </div>
         </div>

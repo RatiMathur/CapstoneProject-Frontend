@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { customPOST } from "../backendAPICall/ApiCall.js";
@@ -65,7 +65,13 @@ export default function Login() {
   return (
     <>
       <div className="container pt-5">
-        <h1 className="display-1 pb-2">BookStore</h1>
+        <h1
+          className="display-1 pb-2"
+          style={{ color: "Blue", fontWeight: "bold", textAlign: "center" }}
+        >
+          KH BookStore
+        </h1>
+
         <div className="card">
           <div className="card-header">Login</div>
           <div className="card-body">
