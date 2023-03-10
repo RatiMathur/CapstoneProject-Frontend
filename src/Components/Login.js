@@ -67,12 +67,17 @@ export default function Login() {
       <div className="container pt-5">
         <h1
           className="display-1 pb-2"
-          style={{ color: "Blue", fontWeight: "bold", textAlign: "center" }}
+          style={{ color: "Blue", fontWeight: "bold", textAlign: "justify" }}
         >
           KH BookStore
         </h1>
 
-        <div className="card">
+        <div
+          className="card"
+          style={{
+            maxWidth: "30rem",
+          }}
+        >
           <div className="card-header">Login</div>
           <div className="card-body">
             <form onSubmit={onSubmit}>
