@@ -77,7 +77,7 @@ export default function Login() {
       >
         <h1
           className="display-1 pb-2"
-          style={{ color: "White", fontWeight: "bold", textAlign: "center" }}
+          style={{ color: "gold", fontWeight: "bold", textAlign: "center" }}
         >
           KH BookStore
         </h1>

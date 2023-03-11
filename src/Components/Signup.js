@@ -63,7 +63,9 @@ export default function SignUp() {
     if (value === "") {
       setPasswordError("Please enter password");
     } else if (!passwordPattern.test(value)) {
-      setPasswordError("Please enter valid password");
+      setPasswordError(
+        "Please enter valid password.Minimum 1 capital letter.Minimum 1 special character."
+      );
     } else {
       setPasswordError("");
     }
@@ -88,7 +90,12 @@ export default function SignUp() {
   return (
     <>
       <div className="container pt-5">
-        <h1 className="display-1 pb-2">New User Signup</h1>
+        <h1
+          className="display-1 pb-2"
+          style={{ color: "blue", fontWeight: "bolder" }}
+        >
+          New User Signup
+        </h1>
         <div className="card">
           <div className="card-header">Sign Up</div>
           <div className="card-body">
