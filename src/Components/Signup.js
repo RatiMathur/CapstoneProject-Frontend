@@ -39,9 +39,12 @@ export default function SignUp() {
     };
 
     customPOST("auth/signup", request).then((response) => {
-      console.log("Signup 2");
-      localStorage.setItem("token", response.data.token);
-      navigate("/dashboard");
+      if (response.data.error) {
+        window.alert("User already exists");
+      } else {
+        localStorage.setItem("token", response.data.token);
+        navigate("/dashboard");
+      }
     });
   }
 

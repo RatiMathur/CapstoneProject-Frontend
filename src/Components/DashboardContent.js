@@ -10,7 +10,6 @@ export default function DashboardContent() {
         className="display-1 pb-2"
         style={{ color: "brown", fontWeight: "bolder" }}
       >
-        {" "}
         <span>
           <Typewriter
             words={["Welcome to KH Book Store", "Explore the world of books"]}

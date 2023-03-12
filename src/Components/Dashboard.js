@@ -26,7 +26,10 @@ export default function Dashboard() {
           className="collapse navbar-collapse"
           width="100%"
           id="navbarNav"
-          style={{ color: "grey", fontWeight: "bolder" }}
+          style={{
+            color: "grey",
+            fontWeight: "bolder",
+          }}
         >
           <ul className="navbar-nav">
             <li className="nav-item">
