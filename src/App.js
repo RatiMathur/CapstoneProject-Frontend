@@ -7,6 +7,7 @@ import Dashboard from "./Components/Dashboard.js";
 import DashboardContent from "./Components/DashboardContent.js";
 import NotFound from "./Components/NotFound.js";
 import UpdateBook from "./Components/UpdateBook.js";
+import BookDetails from "./Components/BookDetails.js";
 import { Routes, Route, Navigate } from "react-router-dom";
 import ProtectedRoute from "./Components/ProtectedRoute.js";
 
@@ -46,6 +47,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <UpdateBook />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="book/:id"
+            element={
+              <ProtectedRoute>
+                <BookDetails />
               </ProtectedRoute>
             }
           />

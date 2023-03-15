@@ -12,7 +12,15 @@ export default function Book({ book, onDeleteHandler }) {
         <img src={LoginImage} width="200" height="100" />
         <h6 className="card-title">Price: ${book.price}</h6>
         <h6 className="card-text">Available: {book.quantity}</h6>
-        <p className="card-text">{book.description}</p>
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={() => {
+            navigate(`/dashboard/book/${book._id}`);
+          }}
+        >
+          Details
+        </button>{" "}
         <button
           type="button"
           className="btn btn-primary"
