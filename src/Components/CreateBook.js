@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { customPOST } from "../backendAPICall/ApiCall.js";
+import Books from "./Books.js";
 
 export default function CreateBook() {
   const [name, setName] = useState("");
@@ -39,7 +40,9 @@ export default function CreateBook() {
       navigate("/dashboard/books");
     });
   }
-
+  function onCancel(event) {
+    navigate("/dashboard/books");
+  }
   function setNameandError(value) {
     setName(value);
     if (value === "") {
@@ -177,6 +180,13 @@ export default function CreateBook() {
             <div className="form-group mt-5">
               <button type="submit" className="btn btn-primary">
                 Save
+              </button>{" "}
+              <button
+                type="cancel"
+                className="btn btn-primary"
+                onClick={onCancel}
+              >
+                Cancel
               </button>
             </div>
           </form>
