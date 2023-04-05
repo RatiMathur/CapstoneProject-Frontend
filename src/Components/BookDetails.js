@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { customGET, customPUT } from "../backendAPICall/ApiCall.js";
+import "../App.css";
+import LoginImage from "../images/LoginImage.png";
 
 export default function BookDetails() {
   const [name, setName] = useState("");
@@ -48,81 +50,69 @@ export default function BookDetails() {
     );
   }
   return (
-    <div style={{ fontSize: 30 }}>
-      <h1 style={{ color: "blue" }}>Book Details</h1>
-      <div>
-        <label htmlFor="bookName" className="mb-2">
-          Book Name : {name}
-        </label>
+    <div className="detailPage">
+      <div className="image">
+        <img src={LoginImage} />
       </div>
-      <div>
-        <label htmlFor="authorName" className="mb-2">
-          Author Name : {author}
-        </label>
-      </div>
-      <div>
-        <label htmlFor="bookDescription" className="mb-2">
-          Book Description : {description}
-        </label>
-      </div>
-      <div>
-        <label htmlFor="bookQuantity" className="mb-2">
-          Book Quantity : {quantity}
-        </label>
-      </div>
-      <div>
-        <label htmlFor="bookPrice" className="mb-2">
-          Book Price : {price}
-        </label>
-      </div>
-      <form onSubmit={onPost}>
+      <div style={{ fontSize: 30 }}>
+        <h1 htmlFor="bookName">{name}</h1>
         <div>
-          <label className="mb-2"> Reviews: </label>
-
-          {review.length > 0 ? (
-            review.map((rev) => {
-              return <p style={{ color: "blue" }}>Review # : {rev}</p>;
-            })
-          ) : (
-            <p>No Reviews</p>
-          )}
-        </div>
-        <h4> Add Review </h4>
-        <hr />
-        {/* <div>
-          <label> Name: </label>
-          <input
-            id="name"
-            type="text"
-            style={{ height: 30 }}
-            onBlur={(event) =>
-              setReviewerName([...reviewerName, event.target.value])
-            }
-          ></input>
-        </div>{" "} */}
-        <div>
-          <textarea
-            id="review"
-            type="text"
-            style={{ height: 40 }}
-            onBlur={(event) => {
-              setReview([...review, event.target.value]);
-            }}
-          ></textarea>
+          <label htmlFor="authorName" className="mb-2">
+            Author Name : {author}
+          </label>
         </div>
         <div>
-          <button
-            className="btn btn-primary"
-            style={{ color: "gold" }}
-            type="submit"
-          >
-            Post Review
-          </button>
+          <label htmlFor="bookDescription" className="mb-2">
+            Book Description : {description}
+          </label>
         </div>
-      </form>{" "}
-      <button className="btn btn-primary" onClick={onSubmit}>
-        Done
-      </button>
+        <div>
+          <label htmlFor="bookQuantity" className="mb-2">
+            Book Quantity : {quantity}
+          </label>
+        </div>
+        <div>
+          <label htmlFor="bookPrice" className="mb-2">
+            Book Price : ${price}
+          </label>
+        </div>
+        <form onSubmit={onPost}>
+          <label> Reviews: </label>
+          <div className="review">
+            {review.length > 0 ? (
+              review.map((rev) => {
+                return <p style={{ color: "blue" }}>Review # : {rev}</p>;
+              })
+            ) : (
+              <p>No Reviews</p>
+            )}
+          </div>
+          <h4> Add Review </h4>
+          <hr />
+          <div>
+            <textarea
+              id="review"
+              type="text"
+              style={{ height: 40 }}
+              onBlur={(event) => {
+                setReview([...review, event.target.value]);
+              }}
+            ></textarea>
+          </div>
+          <div>
+            <button
+              className="btn btn-primary"
+              style={{ color: "gold" }}
+              type="submit"
+            >
+              Post Review
+            </button>
+          </div>
+        </form>{" "}
+        <button className="btn btn-primary" onClick={onSubmit}>
+          Done
+        </button>
+      </div>
     </div>
   );
 }
