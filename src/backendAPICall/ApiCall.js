@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // const baseUrl = "http://localhost:8000/";
-const baseUrl = "https://capstonebackend-qkcb.onrender.com";
+const baseUrl = "https://capstonebackend-qkcb.onrender.com/";
 
 export function customGET(url) {
   const token = localStorage.getItem("token");
