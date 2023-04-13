@@ -36,9 +36,10 @@ export default function UpdateProduct() {
       price,
     };
 
-    customPUT(`books/${id}`, request).then((response) =>
-      navigate("/dashboard/books")
-    );
+    customPUT(`books/${id}`, request).then((response) => {
+      console.log(response);
+      navigate("/dashboard/books");
+    });
   }
 
   return (

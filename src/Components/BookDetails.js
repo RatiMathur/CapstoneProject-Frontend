@@ -36,6 +36,7 @@ export default function BookDetails() {
   }
 
   function onPost(event) {
+    event.preventDefault();
     const request = {
       name,
       author,
@@ -45,9 +46,12 @@ export default function BookDetails() {
       review,
     };
 
-    customPUT(`books/${id}`, request).then((response) =>
-      window.location.reload(true)
-    );
+    customPUT(`books/${id}`, request).then((response) => {
+      console.log(response);
+
+      // navigate(`book/${id}`);
+      // window.location.reload(true);
+    });
   }
   return (
     <div className="detailPage">
@@ -91,7 +95,7 @@ export default function BookDetails() {
           <hr />
           <div>
             <textarea
-              id="review"
+              className="review"
               type="text"
               style={{ height: 40 }}
               onBlur={(event) => {
