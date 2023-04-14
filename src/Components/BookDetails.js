@@ -48,7 +48,7 @@ export default function BookDetails() {
 
     customPUT(`books/${id}`, request).then((response) => {
       console.log(response);
-
+      document.getElementById("review").value = " ";
       // navigate(`book/${id}`);
       // window.location.reload(true);
     });
@@ -95,7 +95,7 @@ export default function BookDetails() {
           <hr />
           <div>
             <textarea
-              className="review"
+              id="review"
               type="text"
               style={{ height: 40 }}
               onBlur={(event) => {
