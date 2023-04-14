@@ -10,18 +10,19 @@ export default function Books() {
 
   useEffect(() => {
     customGET("books").then((response) => setBooks(response.data));
-  }, []);
+  }, [books]);
 
   function onDelete(id) {
     if (window.confirm("Do you want to delete this item?")) {
       customDELETE(`books/${id}`).then((response) => {
+        console.log(response);
         const filteredBooks = books.filter(
           (book) => book.id !== response.data.id
         );
         setBooks(filteredBooks);
       });
     }
-    window.location.reload(true);
+    // window.location.reload(true);
   }
 
   return (
